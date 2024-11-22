@@ -18,50 +18,83 @@ public class Algebra {
    		System.out.println(div(25,7));   // 25 / 7
    		System.out.println(mod(25,7));   // 25 % 7
    		System.out.println(mod(120,6));  // 120 % 6    
-   		System.out.println(sqrt(36));
-		System.out.println(sqrt(263169));
-   		System.out.println(sqrt(76123));
+   		System.out.println(sqrt(36)); //6
+		System.out.println(sqrt(263169)); // 513
+   		System.out.println(sqrt(76123)); // 275
 	}  
 
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		// creating a loop to run x2 times and each time it will add 1 to x1
+		for (int j = 0; j < x2; j++) {
+			x1++;
+			
+		}
+		return x1;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		// creating a loop to run x2 times and each time it will minus 1 from x1
+		for (int j = 0; j < x2; j++) {
+			x1--;
+			
+		}
+		return x1;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		// creating a loop to run x2-1 times and each time it will add num (origin x1) to x1 
+		int num = x1;
+		for (int j = 1; j < x2; j++) {
+			x1 = plus(x1, num);
+			
+		}
+		return x1;
 	}
 
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
-		// Replace the following statement with your code
-		return 0;
+		// each time will add the mult of x and x origin 
+		int num = x;
+		for (int i = 1; i < n ; i++) {
+			x = times(x, num);
+			
+		}
+		return x;
 	}
 
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		// the loop will end when x1 is lower than x2 
+		int i = 0;
+		while (x2<=x1){
+			x1 = minus(x1, x2);
+			i++;
+
+		}
+		return i;
 	}
 
 	// Returns x1 % x2
 	public static int mod(int x1, int x2) {
-		// Replace the following statement with your code
-		return 0;
+		// decrease x2 from x1 until x1 is lower and thare is the rest
+		while (x2<=x1){
+			x1 = minus(x1, x2);
+
+		}
+		return x1;
 	}	
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-		// Replace the following statement with your code
-		return 0;
+		// runing from 1 to x (num) until finding the num*num that would be X 
+		int num =1;
+		while ((times(num, num)!=x)&&times(num, num)<=x){
+			num++;
+		}
+		
+			return num;
 	}	  	  
 }
