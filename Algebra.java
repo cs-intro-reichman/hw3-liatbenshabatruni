@@ -95,11 +95,13 @@ public class Algebra {
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		// each time will add the mult of x and x origin 
-		int num = x;
+		if (x!=0){
+			int num = x;
 		for (int i = 1; i < n ; i++) {
 			x = times(x, num);
 			
 		}
+		}	
 		return x;
 	}
 
@@ -154,6 +156,10 @@ public class Algebra {
 		int num = 0;
 		while ((times(num, num)!=x)&&times(num, num)<=x){
 			num++;
+		}
+		if (times(num,num)>x) {
+			num--;
+			
 		}
 		
 			return num;
