@@ -102,6 +102,9 @@ public class Algebra {
 			
 		}
 		}	
+		else{
+			x=0;
+		}
 		return x;
 	}
 
