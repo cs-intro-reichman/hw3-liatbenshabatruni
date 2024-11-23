@@ -1,7 +1,7 @@
 // Computes the periodical payment necessary to pay a given loan.
 public class LoanCalc {
 	
-	static double epsilon = 0.001;  // Approximation accuracy
+	static double epsilon = 0.01;  // Approximation accuracy
 	static int iterationCounter;    // Number of iterations 
 	
 	// Gets the loan data and computes the periodical payment.
@@ -29,7 +29,7 @@ public class LoanCalc {
 	// interest rate (as a percentage), the number of periods (n), and the periodical payment.
 	private static double endBalance(double loan, double rate, int n, double payment) {	
 		// Replace the following statement with your code
-		double rateCal = rate/100 +1; //creating a variable rate for calculation - at our case - 1.05
+		double rateCal = (rate/100)+1; //creating a variable rate for calculation - at our case - 1.05
 		for (int i = 0; i < n; i++) {
 			loan = (loan - payment)*rateCal;
 		}
@@ -45,9 +45,9 @@ public class LoanCalc {
 		// Replace the following statement with your code
 		double g = loan/n;
 		iterationCounter = 0;
-		while (Math.abs(endBalance(loan, rate, n, g)) > epsilon){
-			g = g + epsilon;
-			iterationCounter++;
+		while ((endBalance(loan, rate, n, g)) > 0){
+				g = g + epsilon;
+				iterationCounter++;
 		}
 		return g;
     }
